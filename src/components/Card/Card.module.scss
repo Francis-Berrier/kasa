@@ -1,0 +1,53 @@
+@import "../../assets/styles/utils/mixins";
+@import "../../assets/styles/utils/variables";
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    height: auto;
+    width: 100%;
+    background-color: $primary-color;
+    border-radius: 5px;
+}
+
+
+.cardTitle {
+    display: flex;
+    align-items: center;
+    height: 52px;
+    width: 100%;
+    background-color: $secondary-color;
+    padding: 0 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.titleText {
+    @include white-titles(24px, $heavy-weight);
+}
+
+.cardIcon {
+    margin-left:auto;
+    color: $fourth-color;
+    font-weight: $heavy-weight;
+    transition: transform 0.5s ease;
+
+    svg {
+        width: 32px;
+        margin: 0;
+        padding: 0;
+    }
+}
+.rotate {
+    transform: rotate(180deg);
+}
+
+.hideText {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+.displayText {
+    max-height: 300px;
+}

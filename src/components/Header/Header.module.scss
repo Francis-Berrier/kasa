@@ -1,0 +1,39 @@
+@import "../../assets/styles/utils/mixins";
+@import "../../assets/styles/utils/variables";
+
+header {
+    padding: 50px 100px 50px 100px;
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+    svg{
+        height: 68px;
+        width:auto;
+        fill: $secondary-color;
+
+    }
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.pageLink{
+    all: unset;
+    font-size: 24px;
+    font-weight: $middle-weight;
+    margin-left: 50px;
+    cursor: pointer;
+    border-bottom: 2px solid white;
+}
+
+.pageLink:hover{
+    border-bottom: 2px solid black;
+
+}

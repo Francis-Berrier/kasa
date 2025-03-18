@@ -1,0 +1,28 @@
+@import "../../assets/styles/utils/mixins";
+@import "../../assets/styles/utils/variables";
+
+.footerContainer {
+    padding-top: 30px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $third-color;
+    width: 100%;
+    height: 209px;
+    svg {
+        margin: 30px;
+        fill: $fourth-color;
+        width: 122px;
+        height: auto;
+    }
+}
+
+.text {
+    @include white-titles(24px, $middle-weight);
+    padding-top: 20px;
+}
+
+p {
+    all:unset;
+}

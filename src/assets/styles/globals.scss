@@ -1,0 +1,12 @@
+@import "./utils/variables";
+@import "./utils/mixins";
+
+:root {
+    max-width: 1440px;
+    width: 100vw;
+}
+body {
+    font-family: $primary-font;
+    background-color: $fourth-color;
+    color: $third-color;
+}

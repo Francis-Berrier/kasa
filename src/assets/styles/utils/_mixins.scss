@@ -1,0 +1,13 @@
+@import "./variables";
+
+@mixin white-titles($font-size, $font-weight) {
+    color: $fourth-color;
+    font-size: $font-size;
+    font-weight: $font-weight;
+}
+
+@mixin red-titles($font-size, $font-weight) {
+    color: $secondary-color;
+    font-size: $font-size;
+    font-weight: $font-weight;
+}
