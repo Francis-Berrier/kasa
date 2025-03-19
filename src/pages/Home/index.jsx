@@ -5,17 +5,6 @@ import { useEffect } from 'react'
 import Gallery from '../../components/GalleryElement'
 
 function Home(){
-    useEffect(() => {
-        const storedLocations = localStorage.getItem("locations")
-
-        if(!storedLocations) {
-            fetch('/public/logements.json')
-            .then(reponse => reponse.json())
-            .then(data => {
-                localStorage.setItem('locations', JSON.stringify(data))
-            })
-        }
-    }, []);
     
     return( 
         <div className={styles.home}> 

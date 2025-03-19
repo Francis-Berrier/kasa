@@ -1,0 +1,18 @@
+@import "../../assets/styles/utils/mixins";
+@import "../../assets/styles/utils/variables";
+
+.rating {
+    display: flex;
+    gap: 5px;
+}
+
+.starFull {
+    width: 24px;
+    height: auto;
+    color: $secondary-color;
+}
+.starEmpty {
+    width: 24px;
+    height: auto;
+    color: #E3E3E3;
+}

@@ -9,18 +9,30 @@
     width: 100%;
     background-color: $primary-color;
     border-radius: 5px;
+    
+
+    
 }
 
 
 .cardTitle {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 52px;
     width: 100%;
     background-color: $secondary-color;
     padding: 0 15px;
     border-radius: 5px;
     box-sizing: border-box;
+    color: $fourth-color;
+
+    svg {
+        
+        width: 24px;
+        height:auto;
+        
+    }
 }
 
 .titleText {
@@ -32,12 +44,6 @@
     color: $fourth-color;
     font-weight: $heavy-weight;
     transition: transform 0.5s ease;
-
-    svg {
-        width: 32px;
-        margin: 0;
-        padding: 0;
-    }
 }
 .rotate {
     transform: rotate(180deg);

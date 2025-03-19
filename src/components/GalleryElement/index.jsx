@@ -1,8 +1,14 @@
 import styles from "./GalleryElement.module.scss"
+import { useContext } from "react";
+import { ProjectContext } from "../ProjectContext";
+import {useNavigate } from "react-router-dom";
+
 
 function Gallery() {
 
-    const locations = JSON.parse(localStorage.getItem("locations"));
+    const { locations } = useContext(ProjectContext);
+    const navigate= useNavigate();
+
     return(
         <div className={styles.gallery}>
             {locations.map(({ id, cover, title }) => {
@@ -11,8 +17,11 @@ function Gallery() {
                     backgroundSize: `cover`,
                     backgroundPosition: `center`
                 }
+                const handleClick = () => {
+                    navigate(`/location/${id}`)
+                }
                 return (
-                    <div key={id} className={styles.galleryElement} style={backgdImage} >
+                    <div key={id} className={styles.galleryElement} style={backgdImage} onClick={handleClick}>
                         {title}
                     </div>
                 );

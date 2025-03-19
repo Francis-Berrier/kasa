@@ -1,0 +1,17 @@
+@import "../../assets/styles/utils/mixins";
+@import "../../assets/styles/utils/variables";
+
+.tag {
+    width: fit-content;
+    height: 25px;
+    padding:  0 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary-color;
+    color: $fourth-color;
+    font-weight: $heavy-weight;
+    font-size: 14px;
+
+}
