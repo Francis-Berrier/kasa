@@ -9,12 +9,7 @@
     width: 100%;
     background-color: $primary-color;
     border-radius: 5px;
-    
-
-    
 }
-
-
 .cardTitle {
     display: flex;
     align-items: center;
@@ -34,21 +29,18 @@
         
     }
 }
-
 .titleText {
     @include white-titles(24px, $heavy-weight);
 }
-
 .cardIcon {
     margin-left:auto;
     color: $fourth-color;
     font-weight: $heavy-weight;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 .rotate {
     transform: rotate(180deg);
 }
-
 .hideText {
     max-height: 0;
     overflow: hidden;

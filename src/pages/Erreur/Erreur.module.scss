@@ -1,0 +1,32 @@
+@import "../../assets/styles/utils/variables";
+@import "../../assets/styles/utils/mixins";
+
+
+.erreur {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 139px;
+    margin: 139px 0 139px 0;
+}
+.erreur h1 {
+    all: unset;
+    font-size: 288px;
+    font-weight: $heavy-weight;
+    color: $secondary-color;
+}
+.erreur h2 {
+    all: unset;
+    font-size: 36px;
+    font-weight: $middle-weight;
+    color: $secondary-color;
+}
+.erreur a {
+    all: unset;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: $middle-weight;
+    color: $third-color;
+    border-bottom: 1px solid $third-color;
+}

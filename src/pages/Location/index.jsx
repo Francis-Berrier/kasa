@@ -1,5 +1,5 @@
 import styles from'./Location.module.scss'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import { ProjectContext } from '../../components/ProjectContext'
 import CarouselAppart from '../../components/CarouselAppart';
@@ -14,11 +14,16 @@ function Location(){
     const { locations } = useContext(ProjectContext);
     const { id } = useParams();
     const [location, setLocation] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
 
         if(locations.length > 0){
             const foundLocation= locations.find((item) => item.id === id);
+            if(!foundLocation) {
+                navigate("/erreur")
+
+            }
             setLocation(foundLocation);
         }
     },[locations, id]);

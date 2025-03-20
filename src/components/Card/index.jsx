@@ -25,9 +25,6 @@ function Card({cardTitle, children}) {
             <div className={`${styles.hideText} ${displayText? styles.displayText : ''}`}>
                 <CardText>{children}</CardText>
             </div>
-            
-                
-            
         </div>)
 }
 

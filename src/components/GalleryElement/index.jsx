@@ -18,7 +18,8 @@ function Gallery() {
                     backgroundPosition: `center`
                 }
                 const handleClick = () => {
-                    navigate(`/location/${id}`)
+                    navigate(`/location/${id}`);
+                    window.scrollTo(0,0);
                 }
                 return (
                     <div key={id} className={styles.galleryElement} style={backgdImage} onClick={handleClick}>

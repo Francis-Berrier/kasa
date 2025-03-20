@@ -9,7 +9,7 @@ export function ProjectProvider({children}) {
         const storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
 
         if(!storedLocations.length) {
-            fetch('/public/logements.json')
+            const data= fetch('/public/logements.json')
             .then(reponse => reponse.json())
             .then(data => {localStorage.setItem('locations', JSON.stringify(data))});
             setLocations(data);
