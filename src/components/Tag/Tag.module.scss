@@ -13,5 +13,12 @@
     color: $fourth-color;
     font-weight: $heavy-weight;
     font-size: 14px;
+    line-height: 1.43;
+    @include respond-to("mobile") {
+        padding:  0 10px;
+        border-radius: 5px;
+        height: 18px;
+        font-size: 10px;
+    }
 
 }
