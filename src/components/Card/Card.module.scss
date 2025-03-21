@@ -22,15 +22,27 @@
     box-sizing: border-box;
     color: $fourth-color;
 
+    @include respond-to("mobile"){
+        height: 30px;
+        padding: 10px;
+    }
+
     svg {
         
         width: 24px;
         height:auto;
+
+        @include respond-to("mobile"){
+            width: 16px
+        }
         
     }
 }
 .titleText {
     @include white-titles(24px, $heavy-weight);
+    @include respond-to("mobile"){
+        font-size: 13px;
+    }
 }
 .cardIcon {
     margin-left:auto;
@@ -42,7 +54,9 @@
     transform: rotate(180deg);
 }
 .hideText {
+    
     max-height: 0;
+    
     overflow: hidden;
     transition: max-height 0.5s ease-out;
 }

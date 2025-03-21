@@ -14,12 +14,30 @@
         fill: $fourth-color;
         width: 122px;
         height: auto;
+
+        @include respond-to("mobile"){
+            margin:0;
+        }
     }
+    @include respond-to("mobile"){}
 }
 
 .text {
     @include white-titles(24px, $middle-weight);
     padding-top: 20px;
+
+    @include respond-to("mobile"){
+        padding: 15px 20px 0 20px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        @include white-titles(12px, $middle-weight);
+        box-sizing: border-box;
+
+    }
 }
 
 p {

@@ -7,4 +7,9 @@
     font-size: 18px;
     line-height: 1.43;
     box-sizing: border-box;
+
+    @include respond-to("mobile"){
+        padding: 10px;
+        font-size: 12px;   
+    }  
 }

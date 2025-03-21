@@ -11,3 +11,9 @@ $primary-font: "Monserrat", sans-serif;
 $light-weight: 400;
 $middle-weight: 500;
 $heavy-weight: 700;
+
+/*breakpoints*/
+$breakpoints: (
+    "tablet": 1024px,
+    "mobile" : 768px
+)

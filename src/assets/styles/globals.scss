@@ -2,10 +2,14 @@
 @import "./utils/mixins";
 
 :root {
+    all:unset;
     max-width: 1440px;
-    width: 100vw;
+    width: 100%;
+    margin: 0 auto;
+
 }
 body {
+    margin: 0;
     font-family: $primary-font;
     background-color: $fourth-color;
     color: $third-color;
