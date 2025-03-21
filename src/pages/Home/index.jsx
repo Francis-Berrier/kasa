@@ -8,7 +8,7 @@ function Home(){
     
     return( 
         <div className={styles.home}> 
-            <Landscape backImage={LandscapeHome} overlayOpacity={0.3}><span>Chez vous, </span><span>partout ailleurs</span></Landscape>
+            <Landscape backImage={LandscapeHome} overlayOpacity={0.3}><span>Chez vous,&nbsp;</span><span>partout ailleurs</span></Landscape>
             <Gallery />  
         </div>
     )
