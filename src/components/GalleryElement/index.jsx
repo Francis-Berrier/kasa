@@ -13,9 +13,9 @@ function Gallery() {
         <div className={styles.gallery}>
             {locations.map(({ id, cover, title }) => {
                 const backgdImage= {
-                    backgroundImage: `url(${cover})`,
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.41)), url(${cover})`,
                     backgroundSize: `cover`,
-                    backgroundPosition: `center`
+                    backgroundPosition: `center`,
                 }
                 const handleClick = () => {
                     navigate(`/location/${id}`);

@@ -7,7 +7,7 @@ function About() {
 
     return(
         <div className={styles.about}>
-            <Landscape backImage={LandscapeAbout} overlayOpacity={0.6}/>
+            <Landscape backImage={LandscapeAbout} />
             <div className={styles.cardContainer}>
                 <Card cardTitle="Fiabilité">Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes.
                 </Card>
