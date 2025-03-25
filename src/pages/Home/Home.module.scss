@@ -2,17 +2,5 @@
 @import "../../assets/styles/utils/mixins";
 
 .home {
-    max-width: 1440px;
-    padding: 0 100px 0 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
- 
-    @include respond-to("tablet"){
-        padding: 0 30px 0 30px;
-    }
-    @include respond-to("mobile"){
-        padding: 0 20px 0 20px;
-    }
+    @include page-base 
 }

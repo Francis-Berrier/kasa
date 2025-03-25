@@ -2,7 +2,6 @@
 @import "../../assets/styles/utils/variables";
 
 .landscape {
-   
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -10,6 +9,7 @@
     border-radius: 25px;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
     color: $fourth-color;
     line-height: 1.43;
     font-size: 48px;
