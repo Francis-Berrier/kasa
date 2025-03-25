@@ -16,19 +16,15 @@ function Landscape ({backImage, overlayOpacity=0.3, shadow=0, children}) {
 
         mediaQuery.addEventListener("change", handleMediaChange);
         return () => mediaQuery.removeEventListener("change", handleMediaChange);
+    }, []);
 
-    }, [])
-    
-    
     const bgImage = {        
         background: `linear-gradient(rgba(0, 0, 0, ${overlayOpacity}), rgba(0, 0, 0, ${overlayOpacity})), url(${backImage})`,
         backgroundSize: `cover`,
         backgroundPosition: `center`,
         boxShadow: `0 4px 4px rgba(0, 0, 0, ${compShadow})`
     };
-    
-    return (
-       
+    return ( 
         <div
             className={styles.landscape}
             style={bgImage}>
@@ -36,5 +32,4 @@ function Landscape ({backImage, overlayOpacity=0.3, shadow=0, children}) {
         </div>
     )
 }
-
 export default Landscape
