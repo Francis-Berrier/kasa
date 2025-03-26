@@ -8,7 +8,6 @@ function Erreur() {
         navigate("/");
         window.scrollTo(0,0);
     }
-
     return (
         <section className={styles.erreur}>
             <h1>404</h1>
@@ -16,7 +15,6 @@ function Erreur() {
             <a onClick={handleClick}>Retourner sur la page d’accueil</a>
         </section>
     )
-
 }
 
 export default Erreur

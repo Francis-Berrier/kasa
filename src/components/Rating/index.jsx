@@ -13,14 +13,11 @@ function Rating({ rating }) {
 
                 return(
                     <FontAwesomeIcon icon={faStar} key={index} className={
-                        starIndex <= rating? styles.starFull : styles.starEmpty
+                        starIndex <= rating ? styles.starFull : styles.starEmpty
                     }/>
                 )
             })}
-
         </div>
     )
-
 }
-
 export default Rating

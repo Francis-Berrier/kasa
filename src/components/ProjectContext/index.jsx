@@ -25,7 +25,7 @@ export function ProjectProvider({children}) {
                 }
             }
             catch(error){
-                navigate("/erreur")
+                navigate("/noload")
                 console.log(error)
             }
         }

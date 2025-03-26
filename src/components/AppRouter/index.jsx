@@ -3,8 +3,9 @@ import Home from '../../pages/Home'
 import About from '../../pages/About'
 import Location from '../../pages/Location'
 import Erreur from '../../pages/Erreur'
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
+import ErreurFetch from '../../pages/ErreurFetch'
+import Header from "../Header"
+import Footer from "../Footer"
 import ProjectProvider from '../ProjectContext'
 
 
@@ -19,6 +20,7 @@ function AppRouter() {
                     <Route path="/location/:id" element={<Location/>} />
                     <Route path="/erreur" element={<Erreur/>} />
                     <Route path="*" element={<Erreur/>} />
+                    <Route path="/noload" element={<ErreurFetch/>} />
                 </Routes>
                 <Footer />
             </ProjectProvider> 
