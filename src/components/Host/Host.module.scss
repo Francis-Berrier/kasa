@@ -17,19 +17,17 @@
     color: $secondary-color;
     font-weight: $middle-weight;
     font-size: 18px;
+
     @include respond-to("mobile"){
         font-size: 12px;
         width: 50px;
-        
-        
     }  
-
 }
-
 .imgContainer {
     width: 64px;
     height: 64px;
     border-radius: 32px;
+
     @include respond-to("mobile"){
         width: 32px;
         height: 32px;
@@ -41,6 +39,7 @@
     height: 100%;
     border-radius: 32px;
     object-fit: cover;
+    
     @include respond-to("mobile"){
         border-radius: 16px;
     }  

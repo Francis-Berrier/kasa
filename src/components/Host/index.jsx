@@ -9,10 +9,7 @@ function Host ({ name, picture }){
             <div className={styles.imgContainer}>
                 <img src={picture} alt="Photo de l'hôte"/>
             </div>
-            
         </div>
     )
-
 }
-
 export default Host

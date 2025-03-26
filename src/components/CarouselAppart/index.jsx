@@ -6,26 +6,8 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 function CarouselAppart({locPictures}) {
     const [pictureBg, setPicture]= useState(0);
-    //const [imagesLoaded, setloaded]= useState(false);
     const picLength = locPictures.length;
-    
-    
-    /*useEffect(() =>{
-        let loadedImages = 0;
-        locPictures.forEach((src) =>{
-            const img= new Image();
-            img.src = src;
-            img.onload = () => {
-                loadedImages ++;
-                if(loadedImages === locPictures.length){
-                    setloaded(true);
-                }
-
-            }
-        });
-    }, [locPictures]);*/
-
-
+   
     function goBack() {
         
         if (pictureBg === 0 || pictureBg >= picLength) {
@@ -41,9 +23,6 @@ function CarouselAppart({locPictures}) {
             setPicture(pictureBg + 1)
         };
     }
-
-    //if(!imagesLoaded) return(<p></p>)
-
     return (
         <section className={styles.carousel}>
             <div className={styles.imageContainer}>
