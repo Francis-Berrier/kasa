@@ -1,7 +1,7 @@
 import styles from './Home.module.scss'
 import Landscape from '../../components/Landscape'
 import LandscapeHome from '../../assets/images/landscape-home.png'
-import Gallery from '../../components/GalleryElement'
+import Gallery from '../../components/Gallery'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 

@@ -1,4 +1,4 @@
-import styles from "./GalleryElement.module.scss"
+import styles from "./Gallery.module.scss"
 import { useContext } from "react";
 import { ProjectContext } from "../ProjectContext";
 import {useNavigate } from "react-router-dom";

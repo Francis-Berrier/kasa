@@ -37,23 +37,19 @@
     box-sizing: border-box;
     @include respond-to("mobile"){
         margin-top: 20px;
-
     }
-
 }
 .card {
     width: 47%;
+    ul {
+        all: unset;
+        display: flex;
+        flex-direction: column;
+    }
+    li {
+        all:unset;
+    }
 }
-.card ul {
-    all: unset;
-    display: flex;
-    flex-direction: column;
-}
-
-.card li {
-    all:unset;
-}
-
 .tagContainer {
     display:flex;
     flex-direction: row;

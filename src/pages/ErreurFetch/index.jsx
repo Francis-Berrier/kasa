@@ -8,8 +8,8 @@ function ErreurFetch() {
 
     function handleClick() {
         navigate("/")
-        window.scrollTo(0,0);
         window.location.reload();
+        window.scrollTo(0,0);  
     }
     return (
         <div className={styles.erreurPage}> 
