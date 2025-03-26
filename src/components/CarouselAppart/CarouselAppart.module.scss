@@ -2,8 +2,7 @@
 @import "../../assets/styles/utils/variables";
 
 
-.carousel {
-    
+.carousel { 
     width: 100%;
     height: 415px;
     border-radius: 25px;
@@ -20,8 +19,8 @@
     }
     @include respond-to("mobile"){
         height: 255px;
-    }  
-    
+        border-radius: 10px;
+    }     
 }
 .imageContainer {
     position:absolute;
@@ -60,11 +59,9 @@
     box-sizing: border-box;
     @include respond-to("mobile"){
         padding: 10px;
-        border-radius: 25px;
+        border-radius: 10px;
     }  
-
 }
-
 .pageNum {
     font-size: 18px;
     font-weight: $middle-weight;

@@ -1,5 +1,5 @@
 import  styles from"./Card.module.scss";
-import CardText from "../CardText";
+//import CardText from "../CardText";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
@@ -23,7 +23,9 @@ function Card({cardTitle, children}) {
                 <FontAwesomeIcon icon={faChevronUp} className={`${styles.cardIcon} ${rotateIcon ? styles.rotate :''}`} onClick={toogleDisplay} /> 
             </div>
             <div className={`${styles.hideText} ${displayText? styles.displayText : ''}`}>
-                <CardText>{children}</CardText>
+                <div className={styles.cardText} >
+                    {children}
+                </div>
             </div>
         </div>)
 }

@@ -5,10 +5,7 @@ function TitleLocation({title, subtitle}) {
         <div className={styles.titleLoc}>
             <h1>{title}</h1>
             <p>{subtitle}</p>
-        </div>
-        
+        </div>  
     )
-
 }
-
 export default TitleLocation

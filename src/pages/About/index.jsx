@@ -4,7 +4,6 @@ import LandscapeAbout from '../../assets/images/landscape-about.png'
 import Card from '../../components/Card'
 
 function About() {
-
     return(
         <div className={styles.about}>
             <Landscape backImage={LandscapeAbout} />
@@ -17,7 +16,5 @@ function About() {
             </div>
         </div>
     )
-
 }
-
 export default About
