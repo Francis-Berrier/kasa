@@ -9,7 +9,7 @@ export function ProjectProvider({children}) {
 
     useEffect(()=>{
         async function fetchData(){
-            const storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
+            const storedLocations = JSON.parse(sessionStorage.getItem("locations")) || [];
 
             try{
                 if(!storedLocations.length) {
@@ -18,19 +18,17 @@ export function ProjectProvider({children}) {
                         throw new Error(error)
                     }
                     const data = await response.json();
-                    localStorage.setItem('locations', JSON.stringify(data));
+                    sessionStorage.setItem('locations', JSON.stringify(data));
                     setLocations(data);
                 }else {
                     setLocations(storedLocations);
                 }
             }
             catch(error){
-                navigate("/noload")
-                console.log(error)
+                navigate("/")     
             }
         }
-        fetchData();
-        
+        fetchData();  
     }, []);
 
     return(

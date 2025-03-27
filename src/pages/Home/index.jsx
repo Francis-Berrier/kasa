@@ -1,22 +1,9 @@
 import styles from './Home.module.scss'
 import Landscape from '../../components/Landscape'
 import LandscapeHome from '../../assets/images/landscape-home.png'
-import Gallery from '../../components/GalleryElement'
-import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import Gallery from '../../components/Gallery'
 
 function Home(){
-    const navigate= useNavigate();
-
-    useEffect(()=>{
-        function checkData(){
-            const isStorage = localStorage.getItem("locations") !== null;
-            if(!isStorage){
-                navigate("/noload")
-        }
-        }
-        checkData();
-    }, []);
 
     return( 
         <div className={styles.home}> 
