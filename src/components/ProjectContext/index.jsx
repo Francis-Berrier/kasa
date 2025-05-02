@@ -1,38 +1,47 @@
-import { createContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { createContext, useState, useEffect, useCallback } from "react";
+import { getDataWithExpiry, storeDataWithExpiry } from "../../utils/storeDataWithExpiry";
 
 export const ProjectContext= createContext();
 
 export function ProjectProvider({children}) {
     const [locations, setLocations] = useState([]);
-    const navigate= useNavigate();
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
-    useEffect(()=>{
-        async function fetchData(){
-            const storedLocations = JSON.parse(sessionStorage.getItem("locations")) || [];
+    const fetchData = useCallback(async () => {
+        setLoading(true);
+        setError(null);
 
-            try{
-                if(!storedLocations.length) {
-                    const response = await fetch('/public/logements.json');
-                    if(!response){
-                        throw new Error(error)
-                    }
-                    const data = await response.json();
-                    sessionStorage.setItem('locations', JSON.stringify(data));
-                    setLocations(data);
-                }else {
-                    setLocations(storedLocations);
+        try{
+            const storedLocations = getDataWithExpiry( 'locations' );
+            const API_URL = import.meta.env.VITE_API_URL;
+
+            if(!storedLocations) {
+                const response = await fetch(API_URL);
+                if(!response.ok){
+                    throw new Error()
                 }
-            }
-            catch(error){
-                navigate("/")     
+                const data = await response.json();
+                storeDataWithExpiry( 'locations', data );
+                setLocations(data);
+            }else {
+                setLocations(storedLocations);
             }
         }
-        fetchData();  
+        catch(error){
+            setError(error);
+        }
+        finally {
+            setLoading(false)
+        }
     }, []);
 
+    useEffect(()=>{
+        fetchData();  
+    }, [fetchData]);
+
     return(
-        <ProjectContext.Provider value={{locations}}>
+        <ProjectContext.Provider value={{ locations, loading, error, repeatFetch: fetchData }}>
             {children}
         </ProjectContext.Provider>
     );

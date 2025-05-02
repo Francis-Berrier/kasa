@@ -6,7 +6,6 @@ import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 function Card({cardTitle, children}) {
     
-
     const [displayText, setDisplay] = useState(false)
     const [rotateIcon, setRotate] = useState(false)
 

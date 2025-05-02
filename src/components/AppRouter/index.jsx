@@ -12,7 +12,7 @@ function AppRouter() {
     return (
         <Router>
             <ProjectProvider>
-            <Header />
+                <Header />
                 <Routes>
                     <Route path="/" element={<Home/>} />
                     <Route path="/about" element={<About/>} />

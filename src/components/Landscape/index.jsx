@@ -1,7 +1,7 @@
 import styles from './Landscape.module.scss'
 import { useEffect, useState } from 'react';
 
-function Landscape ({backImage, overlayOpacity=0.3, shadow=0, children}) {
+function Landscape ({backImage, overlayOpacity=0.3, shadow=0, children, alt=""}) {
 
     const [compShadow, setCompShadow]=useState(0);
 
@@ -9,7 +9,7 @@ function Landscape ({backImage, overlayOpacity=0.3, shadow=0, children}) {
         const mediaQuery= window.matchMedia("(max-width: 768px)");
 
         const handleMediaChange = (event) =>{
-            setCompShadow( event.matches ? `0` : `${shadow}` )
+            setCompShadow( event.matches ? 0 : shadow )
         };
 
         handleMediaChange(mediaQuery);
@@ -27,7 +27,9 @@ function Landscape ({backImage, overlayOpacity=0.3, shadow=0, children}) {
     return ( 
         <div
             className={styles.landscape}
-            style={bgImage}>
+            style={bgImage}
+            role="img"
+            aria-label={alt}>
             {children}
         </div>
     )
