@@ -18,20 +18,21 @@ function Location(){
 
     useEffect(() => {
 
-        if(locations.length > 0){
-            const foundLocation= locations.find((item) => item.id === id);
-            if(!foundLocation) {
-                navigate("/erreur")
+        if(!locations || locations.length === 0) {
+            navigate("/erreur");
+            return;
+        };
 
-            }
-            setLocation(foundLocation);
+        const foundLocation= locations.find((item) => item.id === id);
+        if(!foundLocation) {
+            navigate("/erreur");
+            return;
         }
+        setLocation(foundLocation);
+        
     },[locations, id]);
-
     
-    if (!location) {
-        return <div>Location not found</div>; // Un message ou une gestion d'erreur si l'id n'est pas trouvé
-    }
+    if (!location) return null;
     
     return(
         <section className={styles.location}>
@@ -40,9 +41,9 @@ function Location(){
                 <div>
                     <TitleLocation title={location.title} subtitle={location.location} />
                     <div className={styles.tagContainer}>
-                        {location.tags.map(( tag, index ) => {
+                        {location.tags.map(( tag ) => {
                             return(
-                                <Tag key={`${tag}-${index}-${id}`}>{tag}</Tag>
+                                <Tag key={`${tag}-${id}`}>{tag}</Tag>
                             )
                         })}
                     </div>

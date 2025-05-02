@@ -33,6 +33,7 @@
     margin-top: 30px;
     display:flex;
     flex-direction: row;
+    column-gap: 5%;
     justify-content: space-between;
     box-sizing: border-box;
     @include respond-to("mobile"){
@@ -40,7 +41,7 @@
     }
 }
 .card {
-    width: 47%;
+    flex: 1;
     ul {
         all: unset;
         display: flex;

@@ -1,49 +1,60 @@
 import styles from "./Gallery.module.scss"
-import { useContext } from "react";
+import { useContext, useState, useEffect, useMemo } from "react";
 import { ProjectContext } from "../ProjectContext";
 import {useNavigate } from "react-router-dom";
 
 
 function Gallery() {
 
-    const { locations } = useContext(ProjectContext);
-    const isLocations = locations !== null;
+    const { locations, loading, error, repeatFetch } = useContext(ProjectContext);
     const navigate= useNavigate();
+    
 
-    function reLoad() {
-        navigate("/")
-        window.location.reload();
+    const handleClick = (id) => {
+        navigate(`/location/${id}`);
         window.scrollTo(0,0);
-    }  
+    };
+    if (loading) {
+        return(
+            <section className={styles.galleryContainer}>
+                    <div className={`${styles.erreurText} ${styles.erreur}`}>Chargement...</div>
+            </section>
+        )
+    }
+    if (error) {
+        return(
+            <section className={styles.galleryContainer}>   
+                <div className={styles.erreur}>
+                    <h1>404</h1>
+                    <div className={styles.erreurText}><span>Oups! Un problème&nbsp;</span><span>empêche le chargement de la page</span></div>
+                    <button onClick={repeatFetch}>Recharger la page</button>
+                </div>
+            </section>
+        )
+    }
 
-    return(
-        <div className={styles.galleryContainer}>
-            { locations.length > 0 ?
-                <div className={styles.gallery}>
-                    {locations.map(({ id, cover, title }) => {
+    return (
+        <section className={styles.galleryContainer}>      
+            <div className={styles.gallery}>
+                {locations.map(({ id, cover, title }) => {
                     const backgdImage= {
                         backgroundImage: `linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.41)), url(${cover})`,
                         backgroundSize: `cover`,
                         backgroundPosition: `center`,
-                    }
-                    const handleClick = () => {
-                        navigate(`/location/${id}`);
-                        window.scrollTo(0,0);
-                    }
+                    };
                     return (
-                        <div key={id} className={styles.galleryElement} style={backgdImage} onClick={handleClick}>
+                        <article
+                            key= {id}
+                            className={styles.galleryElement}
+                            style={backgdImage}
+                            onClick={ () => handleClick(id) }
+                        >
                             {title}
-                        </div>
+                        </article>
                     );
-                    })} 
-                </div> :
-                <div className={styles.erreur}>
-                    <h1>404</h1>
-                    <div className={styles.erreurText}><span>Oups! Un problème&nbsp;</span><span>empêche le chargement de la page</span></div>
-                    <a onClick={reLoad}>Recharger la page</a>
-                </div>
-            }  
-        </div> 
+                })} 
+            </div>
+        </section> 
     )
 }
 
