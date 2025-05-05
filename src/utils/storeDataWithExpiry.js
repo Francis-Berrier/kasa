@@ -1,5 +1,7 @@
+import { config } from "../assets/config";
+
 export function storeDataWithExpiry (key, data) {
-    const cacheDuration = Number(import.meta.env.VITE_CACHE_DURATION);
+    const cacheDuration = config.CACHE_DURATION;
     const expiry= Date.now() + cacheDuration;
     const dataWithExpiry = { data, expiry };
     localStorage.setItem( key, JSON.stringify(dataWithExpiry));

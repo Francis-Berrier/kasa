@@ -1,12 +1,16 @@
 @import "./utils/variables";
 @import "./utils/mixins";
 
-:root {
-    all:unset;
+.appContainer {
     max-width: 1440px;
-    width: 100%;
     margin: 0 auto;
-
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: inherit;
 }
 body {
     line-height: 1.43;

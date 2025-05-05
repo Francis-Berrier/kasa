@@ -1,7 +1,12 @@
 import styles from './Erreur.module.scss'
 import { useNavigate } from 'react-router-dom'
+import { errorData } from '../../assets/kasaFrenchDatas';
 
 function Erreur() {
+    const codeError  = errorData.codeError;
+    const messagePartOne = errorData.messagePartOne;
+    const messagePartTwo = errorData.messagePartTwo;
+    const linkHome = errorData.linkHome;
     const navigate= useNavigate();
 
     function handleClick() {
@@ -10,9 +15,9 @@ function Erreur() {
     }
     return (
         <section className={styles.erreur}>
-            <h1>404</h1>
-            <div className={styles.erreurText}><span>Oups! La page que </span><span>vous demandez n'existe pas.</span></div>
-            <a onClick={handleClick}>Retourner sur la page d’accueil</a>
+            <h1>{codeError}</h1>
+            <div className={styles.erreurText}><span>{messagePartOne}</span><span>{messagePartTwo}</span></div>
+            <a onClick={handleClick}>{linkHome}</a>
         </section>
     )
 }

@@ -1,5 +1,5 @@
 import styles from './CarouselAppart.module.scss'
-import { useRef, useLayoutEffect, useState } from 'react';
+import { useRef, useLayoutEffect, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
@@ -14,6 +14,15 @@ function CarouselAppart({locPictures}) {
             setWidth(carouselRef.current.offsetWidth);
         }
     });
+
+    useEffect(() => {
+        if(!locPictures || locPictures.length === 0) return;
+
+        locPictures.forEach((pic) => {
+            const img = new Image();
+            img.src = pic;
+        });
+    }, [locPictures]);
 
     const [isAnimating,setIsAnimating] = useState(false);
     const [prevIndex, setPrevIndex] = useState(0);
@@ -35,9 +44,6 @@ function CarouselAppart({locPictures}) {
         setCurrentIndex((index) => ( index === picLength - 1 ? 0 : index + 1));
         setDirection('right');    
     };
-
-    
-   
     return (
         <section ref={carouselRef} className={styles.carousel}>
 
@@ -61,8 +67,7 @@ function CarouselAppart({locPictures}) {
                         animate={{ x: direction === 'left' ? width : -width}}
                         transition={{ duration : 0.5 }}
                     />
-                    }
-               
+                    }              
             </div>
             {picLength > 1 && (
             <div className={styles.navContainer}>
@@ -73,8 +78,7 @@ function CarouselAppart({locPictures}) {
                     {currentIndex + 1}/{picLength}
                 </div>
             </div> 
-            )}
-
+            )};
         </section>
     )
 }

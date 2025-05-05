@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useCallback } from "react";
 import { getDataWithExpiry, storeDataWithExpiry } from "../../utils/storeDataWithExpiry";
+import { config } from "../../assets/config";
 
 export const ProjectContext= createContext();
 
@@ -14,7 +15,7 @@ export function ProjectProvider({children}) {
 
         try{
             const storedLocations = getDataWithExpiry( 'locations' );
-            const API_URL = import.meta.env.VITE_API_URL;
+            const API_URL = config.API_URL;
 
             if(!storedLocations) {
                 const response = await fetch(API_URL);
