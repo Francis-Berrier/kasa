@@ -2,13 +2,13 @@ import styles from'./Location.module.scss'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import { ProjectContext } from '../../components/ProjectContext'
-import CarouselAppart from '../../components/CarouselAppart';
-import Card from '../../components/Card';
-import Tag from '../../components/Tag';
-import TitleLocation from '../../components/TitleLocation';
-import Host from '../../components/Host';
-import Rating from '../../components/Rating';
-
+import CarouselAppart from '../../components/CarouselAppart'
+import Card from '../../components/Card'
+import Tag from '../../components/Tag'
+import TitleLocation from '../../components/TitleLocation'
+import Host from '../../components/Host'
+import Rating from '../../components/Rating'
+import { locationData } from '../../assets/kasaFrenchDatas'
 
 function Location(){
     const { locations } = useContext(ProjectContext);
@@ -55,8 +55,8 @@ function Location(){
             </div>
             
             <div className={styles.cardContainer}>
-                <div className={styles.card}><Card cardTitle="Description">{location.description}</Card></div>
-                <div className={styles.card}><Card cardTitle="Equipements">
+                <Card className={styles.card} cardTitle={locationData.description}>{location.description}</Card>
+                <Card className={styles.card} cardTitle={locationData.equipments}>
                     <ul>
                     {location.equipments.map(( equipment, index  ) =>{
                         return(
@@ -64,12 +64,9 @@ function Location(){
                         )}
                     )}
                     </ul> 
-                </Card></div>
+                </Card>
             </div>
-        </section>
-        
-    )
-    
+        </section>       
+    )    
 }
-
 export default Location

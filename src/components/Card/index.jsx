@@ -1,32 +1,36 @@
 import  styles from"./Card.module.scss";
-//import CardText from "../CardText";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-function Card({cardTitle, children}) {
+function Card({cardTitle, children, className}) {
     
-    const [displayText, setDisplay] = useState(false)
-    const [rotateIcon, setRotate] = useState(false)
-
-    function toogleDisplay() {
+    const [isOpen, setisOpen] = useState(false)
+    function toggleDisplay() {
         
-        setDisplay(!displayText);
-        setRotate(!rotateIcon);
+        setisOpen(!isOpen);
     };
-    
-    return(
-        <div className={styles.card}>
-            <div className={styles.cardTitle}>
+    return (
+        <article className={`${styles.card} ${className ?? ''}`}>
+            <h3 className={styles.cardTitle}>
                 <span className={styles.titleText}>{cardTitle}</span>
-                <FontAwesomeIcon icon={faChevronUp} className={`${styles.cardIcon} ${rotateIcon ? styles.rotate :''}`} onClick={toogleDisplay} /> 
-            </div>
-            <div className={`${styles.hideText} ${displayText? styles.displayText : ''}`}>
+                <FontAwesomeIcon 
+                icon={faChevronUp} 
+                className={`${styles.cardIcon} ${isOpen ? 
+                styles.rotate :''}`} 
+                onClick={toggleDisplay} 
+                role="button"
+                aria-expanded= {isOpen}
+                aria-controls= {`${cardTitle}-content`}
+                aria-label={`Afficher/Masquer ${cardTitle}`}
+                /> 
+            </h3>
+            <div id={`${cardTitle}-content`} className={`${styles.hideText} ${isOpen ? styles.displayText : ''}`}>
                 <div className={styles.cardText} >
                     {children}
                 </div>
             </div>
-        </div>)
-}
-
+        </article>
+    );
+} 
 export default Card;

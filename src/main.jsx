@@ -4,7 +4,10 @@ import '../src/assets/styles/globals.scss'
 import AppRouter from './components/AppRouter'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>    
-        <AppRouter />  
+  
+  <StrictMode>
+    <div className='appContainer'>
+      <AppRouter />  
+    </div>    
   </StrictMode>,
 )

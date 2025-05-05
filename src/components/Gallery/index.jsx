@@ -1,10 +1,16 @@
 import styles from "./Gallery.module.scss"
-import { useContext, useState, useEffect, useMemo } from "react";
+import { useContext } from "react";
 import { ProjectContext } from "../ProjectContext";
 import {useNavigate } from "react-router-dom";
+import { galleryData } from "../../assets/kasaFrenchDatas";
 
 
 function Gallery() {
+    const loadingText = galleryData.loadingText;
+    const codeError = galleryData.codeError;
+    const messagePartOne = galleryData.messagePartOne;
+    const messagePartTwo = galleryData.messagePartTwo;
+    const linkReload = galleryData.linkReload;
 
     const { locations, loading, error, repeatFetch } = useContext(ProjectContext);
     const navigate= useNavigate();
@@ -17,7 +23,7 @@ function Gallery() {
     if (loading) {
         return(
             <section className={styles.galleryContainer}>
-                    <div className={`${styles.erreurText} ${styles.erreur}`}>Chargement...</div>
+                    <div className={`${styles.erreurText} ${styles.erreur}`}>{loadingText}</div>
             </section>
         )
     }
@@ -25,9 +31,9 @@ function Gallery() {
         return(
             <section className={styles.galleryContainer}>   
                 <div className={styles.erreur}>
-                    <h1>404</h1>
-                    <div className={styles.erreurText}><span>Oups! Un problème&nbsp;</span><span>empêche le chargement de la page</span></div>
-                    <button onClick={repeatFetch}>Recharger la page</button>
+                    <h1>{codeError}</h1>
+                    <div className={styles.erreurText}><span>{messagePartOne}&nbsp;</span><span>{messagePartTwo}</span></div>
+                    <button onClick={repeatFetch}>{linkReload}</button>
                 </div>
             </section>
         )
@@ -47,9 +53,11 @@ function Gallery() {
                             key= {id}
                             className={styles.galleryElement}
                             style={backgdImage}
+                            role="button"
+                            aria-label= {`Voir le logement: ${title}`}
                             onClick={ () => handleClick(id) }
                         >
-                            {title}
+                            <span className={styles.galleryTitle}>{title}</span>
                         </article>
                     );
                 })} 

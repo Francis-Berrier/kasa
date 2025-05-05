@@ -20,7 +20,7 @@
             margin-bottom: 10px;
         }  
     }
-    p{
+    h2{
         all: unset;
         font-size: 18px;
         @include respond-to("mobile"){

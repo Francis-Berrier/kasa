@@ -4,7 +4,7 @@ function TitleLocation({title, subtitle}) {
     return(
         <div className={styles.titleLoc}>
             <h1>{title}</h1>
-            <p>{subtitle}</p>
+            <h2>{subtitle}</h2>
         </div>  
     )
 }
